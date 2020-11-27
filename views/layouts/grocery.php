@@ -93,9 +93,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
 </div>
 <!-- //header -->
-<!-- banner -->
-<div class="banner">
-    <?= $this->render('inc/sidebar') ?>
+
     <?= $content ?>
 
 <!-- newsletter -->
