@@ -18,6 +18,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+    <base href="/">
     <meta charset="<?= Yii::$app->charset ?>">
     <title><?= Html::encode($this->title) ?></title>
     <!-- for-mobile-apps -->
