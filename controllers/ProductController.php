@@ -1,0 +1,26 @@
+<?php
+/**
+ * Date: 02.12.2020
+ * Time: 14:33
+ */
+
+namespace app\controllers;
+
+
+use app\models\Product;
+use yii\web\NotFoundHttpException;
+
+class ProductController extends AppController
+{
+
+    public function actionView($id)
+    {
+        $product = Product::findOne($id);
+        if (empty($product)) {
+            throw new NotFoundHttpException("Product hasn't found!");
+        }
+        $this->setMeta("{$product->title} :: ". \Yii::$app->name, $product->keywords, $product->description);
+        return $this->render('view', compact('product'));
+    }
+
+}
