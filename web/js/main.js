@@ -70,16 +70,18 @@ paypal.minicart.cart.on('checkout', function (evt) {
 
 $('.add-to-cart').on('click', function () {
     let id = $(this).data('id');
+    //console.log(id + '=======');
     $.ajax({
-        uri: 'cart/add',
+        url: 'cart/add',
         data: {'id': id},
         type: 'GET',
         success: function (rez) {
             console.log(rez);
+            //alert(rez);
         },
         error: function () {
             alert('Error!');
-        },
+        }
     });
     return false;
 });
