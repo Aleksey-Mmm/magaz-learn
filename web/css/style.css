@@ -1761,6 +1761,10 @@ img{
 	background: #84C639;
 }
 
+#modal-cart img{
+	max-height: 40px;
+}
+
 
 
 
