@@ -65,3 +65,23 @@ paypal.minicart.cart.on('checkout', function (evt) {
         evt.preventDefault();
     }
 });
+
+/* Cart */
+
+$('.add-to-cart').on('click', function () {
+    let id = $(this).data('id');
+    $.ajax({
+        uri: 'cart/add',
+        data: {'id': id},
+        type: 'GET',
+        success: function (rez) {
+            console.log(rez);
+        },
+        error: function () {
+            alert('Error!');
+        },
+    });
+    return false;
+});
+
+/* Cart */
