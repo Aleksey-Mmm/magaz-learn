@@ -1765,7 +1765,11 @@ img{
 	max-height: 40px;
 }
 
-
+.product_list_header span.del-item {
+	color: #FA1818;
+	top: 0;
+	cursor: pointer;
+}
 
 
 @media (max-width:640px){

@@ -7,7 +7,7 @@
                 <th>Наименование</th>
                 <th>Кол-во</th>
                 <th>Цена</th>
-                <th><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></th>
+                <th> </th>
             </tr>
             </thead>
             <tbody>
