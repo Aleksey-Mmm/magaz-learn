@@ -98,6 +98,11 @@ function clearCart() {
         type: 'GET',
         success: function (rez) {
             if (!rez){alert('Ошибка!')};
+            let nowLocation = document.location.pathname; //на какой странице находимся
+            //console.log(nowLocation);
+            if (nowLocation == '/cart/checkout') {
+                location = 'cart/checkout';
+            }
             showCart(rez);
         },
         error: function () {
@@ -131,15 +136,39 @@ $('#modal-cart .modal-body').on('click', '.del-item', function () {
         type: 'GET',
         success: function (rez) {
             if (!rez){alert('Ошибка!')};
+            let nowLocation = document.location.pathname; //на какой странице находимся
+            //console.log(nowLocation);
+            if (nowLocation == '/cart/checkout') {
+                location = 'cart/checkout';
+            }
             showCart(rez);
-            //console.log(rez);
-            //alert(rez);
         },
         error: function () {
             alert('Error!');
         }
     });
 })
+
+$('.value-plus, .value-minus').on('click', function () {
+   let id = $(this).data('id'),
+       qty = $(this).data('qty');
+   $('.cart-table .overlay').fadeIn(); //показ оверлея, чтобы заблокировать таблицу
+   $.ajax({
+      url: 'cart/change-cart',
+      data: {id: id, qty: qty},
+      type: 'GET',
+      success: function (rez) {
+          if(! rez) {
+              alert('Error product!');
+          }
+          location = 'cart/checkout';
+      },
+      error: function () {
+          alert('Error!');
+      },
+   });
+
+});
 
 /*$('.value-plus').on('click', function(){
     var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
