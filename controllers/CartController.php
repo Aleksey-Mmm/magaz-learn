@@ -12,10 +12,11 @@ use app\models\Product;
 
 class CartController extends AppController
 {
-    public function actionView()
+    public function actionCheckout()
     {
         $this->setMeta("Оформление заказа :: ". \Yii::$app->name);
-        return $this->render('view');
+        $session = \Yii::$app->session;
+        return $this->render('checkout', compact('session'));
     }
 
     public function actionDelItem()
@@ -27,7 +28,11 @@ class CartController extends AppController
 
         $cart = new Cart();
         $cart->recalc($id);
-        return $this->renderPartial('cart-modal', compact('session'));
+        if (\Yii::$app->request->isAjax) {
+            return $this->renderPartial('cart-modal', compact('session'));
+        }
+
+        return $this->redirect(\Yii::$app->request->referrer); //возврат на ту страницу, с которой пришел
     }
 
     public function actionClear()
