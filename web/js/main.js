@@ -101,7 +101,7 @@ function clearCart() {
             let nowLocation = document.location.pathname; //на какой странице находимся
             //console.log(nowLocation);
             if (nowLocation == '/cart/checkout') {
-                location = 'cart/checkout';
+                location = 'cart/checkout';  //переход по указанному адресу
             }
             showCart(rez);
         },
