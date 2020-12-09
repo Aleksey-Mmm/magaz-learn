@@ -9,7 +9,12 @@ namespace app\models;
 
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use yii\db\Expression;
 
+/**
+ * @property int qty
+ * @property float total
+ */
 class Order extends ActiveRecord
 {
 
@@ -28,7 +33,7 @@ class Order extends ActiveRecord
                     ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
                 ],
                 // если вместо метки времени UNIX используется datetime:
-                // 'value' => new Expression('NOW()'),
+                'value' => new Expression('NOW()'),
             ],
         ];
     }
@@ -36,7 +41,7 @@ class Order extends ActiveRecord
     public function rules()
     {
         return [
-            [['nname', 'email', 'phone', 'address'], 'required'],
+            [['name', 'email', 'phone', 'address'], 'required'],
             ['note', 'string'],
             ['email', 'email'],
             [['created_at', 'updated_at'], 'safe'],

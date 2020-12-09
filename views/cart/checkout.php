@@ -14,6 +14,8 @@
     <div class="w3l_banner_nav_right">
         <!-- about -->
         <div class="privacy about">
+            <?= \app\widgets\Alert::widget() ?>
+
             <h3>Оформление <span>заказа</span></h3>
             <?php if(!empty($session['cart'])): ?>
             <div class="checkout-right">
@@ -78,8 +80,16 @@
                     </ul>
                 </div>
                 <div class="col-md-8 address_form_agile">
-                    <h4>Add a new Details</h4>
-                    <form action="payment.html" method="post" class="creditly-card-form agileinfo_form">
+                    <h4>Данные покупателя</h4>
+                    <?php $form = \yii\bootstrap\ActiveForm::begin(); ?>
+                        <?= $form->field($order, 'name') ?>
+                        <?= $form->field($order, 'phone') ?>
+                        <?= $form->field($order, 'email') ?>
+                        <?= $form->field($order, 'address') ?>
+                        <?= $form->field($order, 'note')->textarea(['rows'=>5]) ?>
+                        <?= \yii\helpers\Html::submitButton('Оформить', ['class'=> 'submit check_out']) ?>
+                    <?php \yii\bootstrap\ActiveForm::end(); ?>
+                   <!-- <form action="payment.html" method="post" class="creditly-card-form agileinfo_form">
                         <section class="creditly-wrapper wthree, w3_agileits_wrapper">
                             <div class="information-wrapper">
                                 <div class="first-row form-group">
@@ -119,10 +129,10 @@
                                 <button class="submit check_out">Delivery to this Address</button>
                             </div>
                         </section>
-                    </form>
-                    <div class="checkout-right-basket">
+                    </form>-->
+                    <!--<div class="checkout-right-basket">
                         <a href="payment.html">Make a Payment <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
-                    </div>
+                    </div>-->
                 </div>
 
                 <div class="clearfix"> </div>
