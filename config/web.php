@@ -24,7 +24,7 @@ $config = [
     ],
     'components' => [
         'formatter' => [
-            'datetimeFormat' => 'php:d F Y H:i:s',
+            'datetimeFormat' => 'php:d F Y H:i',
         ],
         'assetManager' => [
             'bundles' => [

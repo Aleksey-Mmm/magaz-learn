@@ -53,4 +53,9 @@ class OrderProduct extends \yii\db\ActiveRecord
             'total' => 'Total',
         ];
     }
+
+    public function getOrder()
+    {
+        return $this->hasOne(Order::class, ['id' => 'order_id']);
+    }
 }
