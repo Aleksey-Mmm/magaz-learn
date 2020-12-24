@@ -10,17 +10,22 @@ use yii\widgets\ActiveForm;
 
 <div class="order-form">
 
-    <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+    <?php $form = ActiveForm::begin([
+            'fieldConfig' => [
+                'template' => "
+                <div class='col-md-6'>
+                    <p>{label} </p> \n {input} \n
+                    <div>{error}</div>
+                </div>
+                ",
+            ]
+    ]); ?>
 
     <?= $form->field($model, 'qty')->textInput() ?>
 
     <?= $form->field($model, 'total')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'status')->dropDownList(['Новый', 'Оформлен']) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
