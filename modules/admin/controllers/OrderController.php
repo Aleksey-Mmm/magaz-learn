@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\OrderProduct;
 use Yii;
 use app\modules\admin\models\Order;
 use yii\data\ActiveDataProvider;
@@ -113,7 +114,9 @@ class OrderController extends AppAdminController
      */
     public function actionDelete($id)
     {
+        //$this->findModel($id)->unlinkAll('orderProduct', true); //удаление через связь
         $this->findModel($id)->delete();
+        OrderProduct::deleteAll(['order_id'=> $id]);
 
         return $this->redirect(['index']);
     }

@@ -41,7 +41,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= \yii\helpers\Url::to(['order/index'])?>" class="nav-link active">
+                            <a href="<?= \yii\helpers\Url::to(['order/index'])?>" class="nav-link">
                                 <i class="fas fa-table-tennis nav-icon"></i>
                                 <p>Список заказов</p>
                             </a>

@@ -8,19 +8,18 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="order-form">
-
     <?php $form = ActiveForm::begin([
             'fieldConfig' => [
+                'options' => [
+                        'class' =>  'col-md-6',
+                ],
                 'template' => "
-                <div class='col-md-6'>
-                    <p>{label} </p> \n {input} \n
+                    <p>{label}  {input}</p>
                     <div>{error}</div>
-                </div>
                 ",
             ]
     ]); ?>
-
+    <div class="row">
     <?= $form->field($model, 'qty')->textInput() ?>
 
     <?= $form->field($model, 'total')->textInput(['maxlength' => true]) ?>
@@ -40,7 +39,6 @@ use yii\widgets\ActiveForm;
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
-
+    </div>
     <?php ActiveForm::end(); ?>
 
-</div>
