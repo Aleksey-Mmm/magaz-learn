@@ -35,7 +35,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Магазин
+                            Заказы
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -54,6 +54,30 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-cubes"></i>
+                        <p>
+                            Категории
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= \yii\helpers\Url::to(['category/index'])?>" class="nav-link">
+                                <i class="fas fa-table-tennis nav-icon"></i>
+                                <p>Список категорий</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= \yii\helpers\Url::to(['category/create'])?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Добавить категорию</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
