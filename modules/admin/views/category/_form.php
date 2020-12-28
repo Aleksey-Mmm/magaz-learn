@@ -12,11 +12,25 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
+<!--    --><?//= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'parent_id')->textInput(['maxlength' => true]) ?>
+    <?= ''//$form->field($model, 'parent_id')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+
+    <div class="form-group field-category-parent_id">
+        <label class="control-label" for="category-parent_id">Статус</label>
+            <select id="category-parent_id" class="form-control" name="Category[parent_id]" aria-invalid="false">
+                <option value="0">Root category</option>
+                <?= \app\components\MenuWidget::widget([
+                    'tpl' => 'select',
+                    'model' => $model,
+                    'cache_time' => 0,
+                ]) ?>
+<!--                <option value="1">Оформлен</option>-->
+            </select>
+        <div class="help-block"></div>
+    </div>
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 

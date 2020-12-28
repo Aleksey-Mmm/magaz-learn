@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\Product;
 use Yii;
 use app\modules\admin\models\Category;
 use app\modules\admin\models\CategorySearch;
@@ -101,10 +102,21 @@ class CategoryController extends AppAdminController
      * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
+     * @throws \Exception
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $cats = Category::find()->where(['parent_id' => $id])->count();
+        $prods = Product::find()->where(['category_id' => $id])->count();
+        if ($cats || $prods) {
+            Yii::$app->session->setFlash('error', 'Удаление невозможно: категория не пуста!');
+
+        } else {
+            $this->findModel($id)->delete();
+            Yii::$app->session->setFlash('success', 'Category deleted!');
+        }
 
         return $this->redirect(['index']);
     }
