@@ -31,7 +31,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview menu-open">
+                <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -54,7 +54,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item has-treeview menu-open">
+                <li class="nav-item has-treeview ">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-cubes"></i>
                         <p>
@@ -73,6 +73,29 @@
                             <a href="<?= \yii\helpers\Url::to(['category/create'])?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Добавить категорию</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview ">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon ion ion-stats-bars"></i>
+                        <p>
+                            Товары
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= \yii\helpers\Url::to(['product/index'])?>" class="nav-link">
+                                <i class="fas fa-table-tennis nav-icon"></i>
+                                <p>Список товаров</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= \yii\helpers\Url::to(['product/create'])?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Добавить товар</p>
                             </a>
                         </li>
                     </ul>

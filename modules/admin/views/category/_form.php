@@ -19,7 +19,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group field-category-parent_id">
-        <label class="control-label" for="category-parent_id">Статус</label>
+        <label class="control-label" for="category-parent_id">Категория</label>
             <select id="category-parent_id" class="form-control" name="Category[parent_id]" aria-invalid="false">
                 <option value="0">Root category</option>
                 <?= \app\components\MenuWidget::widget([
