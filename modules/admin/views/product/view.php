@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'value' => $model->category->title,
                             ],
                             'title',
-                            'content:ntext',
+                            'content:raw',
                             'price',
                             'old_price',
                             'description',
