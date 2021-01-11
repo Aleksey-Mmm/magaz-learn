@@ -53,7 +53,17 @@ use mihaildev\elfinder\ElFinder;
 
     <?= $form->field($model, 'keywords')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
+    <?//= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
+
+    <?php
+    echo $form->field($model, 'file')->widget(\kartik\file\FileInput::class, [
+       'options'=>['accept' => 'image/*'],
+       'pluginOptions'=>[
+           'showCaption' => false,
+           'showUpload' => false,
+       ]
+    ]);
+    ?>
 
     <?= $form->field($model, 'is_offer')->textInput() ?>
 
